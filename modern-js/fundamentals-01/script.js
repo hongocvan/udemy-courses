@@ -196,8 +196,11 @@ console.log('--- Coding Challenge #4 ---');
 const MIN_TIP_BILL_VALUE = 50;
 const MAX_TIP_BILL_VALUE = 300;
 
-function calTipValue(billValue, minTipBillValue, maxTipBillValue) {
-    return minTipBillValue <= billValue <= maxTipBillValue ? 0.15 : 0.2;
+function calcTipValue(billValue, minTipBillValue, maxTipBillValue) {
+    if (billValue < minTipBillValue || billValue > maxTipBillValue) {
+        return 0.2;
+    }
+    return 0.15;
 }
 
 function calcFinalBillValue(billValue, tipValue) {
@@ -215,6 +218,10 @@ function printBillValue(billValue, tipValue, finalBillValue) {
 }
 
 const billValue = 275;
-const tipValue = calTipValue(billValue, MIN_TIP_BILL_VALUE, MAX_TIP_BILL_VALUE);
+const tipValue = calcTipValue(
+    billValue,
+    MIN_TIP_BILL_VALUE,
+    MAX_TIP_BILL_VALUE
+);
 const finalBillValue = calcFinalBillValue(billValue, tipValue);
 printBillValue(billValue, tipValue, finalBillValue);
