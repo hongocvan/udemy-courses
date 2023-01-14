@@ -11,5 +11,5 @@
 # Block Scope (ES6)
 
 -   Variables are accessible only **inside block** (block scoped)
--   **HOWEVER**, this only applies to **let** and \*_const_ variables
+-   **HOWEVER**, this only applies to **let** and **const** variables
 -   Functions are **also block scoped** (only in strict mode)
