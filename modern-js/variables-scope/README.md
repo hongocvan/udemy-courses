@@ -66,3 +66,14 @@ const job = 'software developer';
 // if block scope
 const decade = 2;
 ```
+
+# Scope Chain vs Call Stack
+
+Call Stack:
+
+-   Order in which functions were **called**
+
+Scope chain:
+
+-   Order in which functions are **written in the code**
+-   Has **nothing** to do with order in which functions were **called**!
