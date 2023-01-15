@@ -77,3 +77,18 @@ Scope chain:
 
 -   Order in which functions are **written in the code**
 -   Has **nothing** to do with order in which functions were **called**!
+
+# Primitives vs Objects (Primitive vs Reference Types)
+
+```js
+// Copying objects
+const vanObj = {
+    name: 'Ho Ngoc Van',
+    birthYear: 1997,
+};
+
+const copiedVanObj = Object.assign({}, vanObj);
+copiedVanObj.name = 'Art and Science';
+console.log('After:', vanObj);
+console.log('Before:', copiedVanObj);
+```
