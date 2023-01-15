@@ -17,3 +17,37 @@ console.log('After:', a, b); // After: 2, 1
 console.log(`Hello, my name is ${fullName}`); // Hello, my name is Ho Ngoc Van
 console.log(`Have a default value for job variable: ${job}`);
 ```
+
+Destructuring objects inside object
+
+```js
+const vanObj = {
+    name: 'Ho Ngoc Van',
+    birthYear: 1997,
+    favorites: {
+        math: {
+            displayName: 'Math',
+            level: 'High',
+        },
+        science: {
+            displayName: 'Computer Science',
+            level: 'High',
+        },
+        book: {
+            displayName: 'Reading Book',
+            level: 'Medium',
+        },
+        sport: {
+            displayName: 'Sport',
+            level: 'Low',
+        },
+    },
+};
+
+const {
+    math: { displayName: favoriteName, level: favoriteLevel },
+} = vanObj.favorites;
+
+console.log(`Name of favorite: ${favoriteName}`); // Math
+console.log(`Favorite level: ${favoriteLevel}`); // High
+```
