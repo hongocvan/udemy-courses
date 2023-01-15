@@ -30,7 +30,7 @@ const vanObj = {
     callAge: function () {
         console.log('Function call inside object:', this); // object itself
         this.printSummary();
-        return 2023 - this.callAge;
+        return 2023 - this.birthYear;
     },
     printSummary: function () {
         console.log('Function called inside object function:', this); // object
@@ -38,16 +38,16 @@ const vanObj = {
     },
 };
 
-vanObj.callAge();
+console.log(vanObj.callAge());
 
 // Copy object =>>> this keyword is dynamic, not static
 console.log('\n');
 
 const newObj = {
     name: 'Art And Science',
-    birthYear: 2023,
+    birthYear: 2000,
 };
 
 newObj.calcAge = vanObj.callAge;
 newObj.printSummary = vanObj.printSummary;
-newObj.calcAge();
+console.log(newObj.calcAge());
