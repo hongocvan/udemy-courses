@@ -81,14 +81,19 @@ Scope chain:
 # Primitives vs Objects (Primitive vs Reference Types)
 
 ```js
-// Copying objects
+// Copying objects: Shallow copy
 const vanObj = {
     name: 'Ho Ngoc Van',
     birthYear: 1997,
+    favorites: ['math', 'science'],
 };
 
 const copiedVanObj = Object.assign({}, vanObj);
 copiedVanObj.name = 'Art and Science';
-console.log('After:', vanObj);
-console.log('Before:', copiedVanObj);
+console.log('After:', vanObj); // {name: 'Ho Ngoc Van', ...}
+console.log('Before:', copiedVanObj); // {name: 'Art and Science', ...}
+
+copiedVanObj.favorites.push('Reading Book');
+console.log('After:', vanObj); // {..., favorites: ['math', 'science', 'Reading Book']}
+console.log('Before:', copiedVanObj); // {..., favorites: ['math', 'science', 'Reading Book']}
 ```
