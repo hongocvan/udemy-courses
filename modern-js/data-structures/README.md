@@ -51,3 +51,32 @@ const {
 console.log(`Name of favorite: ${favoriteName}`); // Math
 console.log(`Favorite level: ${favoriteLevel}`); // High
 ```
+
+# Spread and Rest Operator
+
+Shallow copy with spread operator
+
+```js
+const favorites = ['Math', 'Science', { name: 'Ho Ngoc Van' }];
+const newFavorites = [...favorites, 'Reading Book'];
+newFavorites[2].birthYear = 1997;
+console.log(favorites); // [...{name: 'Ho Ngoc Van', birthYear: 1997}]
+console.log(newFavorites); // [...{name: 'Ho Ngoc Van', birthYear: 1997}]
+```
+
+Rest operator
+
+```js
+const newFavorites = ['Math', 'Science', 'Reading Book', 'Sleeping'];
+const [firstFavorite, , ...otherFavorites] = newFavorites;
+console.log(otherFavorites); // ['Reading Book', 'Sleeping']
+
+// Work with functions
+const sum = ([firstNumber, ...otherNumbers]) => {
+    console.log(otherNumbers);
+    if (otherNumbers.length === 0) return firstNumber;
+    return firstNumber + sum(otherNumbers);
+};
+
+console.log(sum([1, 2, 1, -3])); // 1
+```
