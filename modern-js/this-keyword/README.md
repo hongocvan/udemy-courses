@@ -10,3 +10,37 @@ Special variable that tis created for every execution context (every function). 
 > **Event listenter** this = DOM element that the handler is attached to.
 
 =>>> **this** does **NOT** point to the function itself, and also **NOT** the its variable environment!
+
+# Regular functions and Arrow functions
+
+```js
+'use strict';
+
+const vanObj = {
+    name: 'Ho Ngoc Van',
+    birthYear: 1997,
+    callAge: function () {
+        const isAdultDecl = function () {
+            // Simple function call
+            // undefined with strict mode, window object otherwise
+            console.log(this);
+            return 2023 - this.birthYear >= 18; // error
+        };
+
+        const isAdultArrow = () => {
+            // Arrow function
+            console.log(this); // vanObj
+            return 2023 - this.birthYear >= 18; // error
+        };
+
+        return [2023 - this.birthYear, isAdultDecl(), isAdultArrow()];
+    },
+    hello: () => {
+        // this = window object
+        console.log(`Hello, my name is ${this.name}`); // this.name = undefined
+    },
+};
+
+vanObj.hello();
+console.log(vanObj.callAge());
+```
