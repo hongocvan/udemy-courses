@@ -118,3 +118,50 @@ for (const [idx, favorite] of favorites.entries()) {
     console.log(idx, favorite); // 0 Math ...
 }
 ```
+
+# Optional Chainig (?.)
+
+```js
+const keys = ['name', 'birthYear', 'favorites', 'favorites2'];
+
+const vanObj = {
+    [keys[0]]: 'Ho Ngoc Van',
+    [keys[1]]: 1997,
+    [keys[2]]: {
+        displayName: 'Math',
+        level: 'High',
+    },
+    favorites2: null,
+    calcAge() {
+        return 2023 - this[keys[1]];
+    },
+    printSummary() {
+        const job = 'Software Developer';
+        console.log(`My name is ${this.name} ${this.calcAge()}-old, ${job}`);
+    },
+    calcAvgNumbers(nums) {
+        return nums.reduce((a, b) => a + b, 0) / nums.length;
+    },
+};
+
+console.log(vanObj); // {name: 'Ho Ngoc Van', birthYear: 1997, ...}
+console.log(vanObj.favorites.displayName); // Math
+
+// Work with function
+vanObj.printSummary(); // My name is Ho Ngoc Van 26-old, Software Developer
+console.log(vanObj.calcAge()); // 26
+console.log(vanObj.calcAvgNumbers([1, 2, 3, 7])); // 5.25 = 13/4
+console.log(vanObj.calcAvg?.([1, 2, 3, 7])); // undefined
+console.log(vanObj.calcAvg?.([1, 2, 3, 7]) ?? 'Method does not exists'); // Method..
+
+// Work with object key
+console.log(vanObj.favorites1?.displayName); // undefined =>>> NOT throw ERROR
+console.log(vanObj[keys[3]]?.displayName); // STILL undefined
+
+console.log(vanObj.favorites1.displayName); // TypeError
+console.log(vanObj?.favorites1.displayName); // TypeError =>>> STILL throw ERROR
+
+// Work with arrays
+const vanArr = [{}];
+console.log(vanArr[0]?.name); // undefined
+```
