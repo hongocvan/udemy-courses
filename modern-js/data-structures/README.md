@@ -80,3 +80,13 @@ const sum = ([firstNumber, ...otherNumbers]) => {
 
 console.log(sum([1, 2, 1, -3])); // 1
 ```
+
+# Nullish Operator (??)
+
+```js
+// Nullish: null and undefined (NOT 0 or '')
+console.log(null ?? 'value'); // value
+console.log(undefined ?? 'value'); // value
+console.log(0 ?? 'value'); // 0
+console.log(false ?? 'value'); // false
+```
