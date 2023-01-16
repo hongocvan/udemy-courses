@@ -165,3 +165,33 @@ console.log(vanObj?.favorites1.displayName); // TypeError =>>> STILL throw ERROR
 const vanArr = [{}];
 console.log(vanArr[0]?.name); // undefined
 ```
+
+# Objects
+
+```js
+const favorites = {
+    math: {
+        displayName: 'Math',
+        level: 'High',
+    },
+    science: {
+        displayName: 'Science',
+        level: 'High',
+    },
+    reading: {
+        displayName: 'Reading Book',
+        level: 'High',
+    },
+    running: {
+        displayName: 'Running',
+        level: 'Medium',
+    },
+};
+
+for (const [
+    favoriteKey,
+    { displayName: favoriteName, level: favoriteLevel },
+] of Object.entries(favorites)) {
+    console.log(favoriteKey, favoriteName, favoriteLevel); // math Math High
+}
+```
