@@ -214,3 +214,30 @@ console.log(vanSet); // {'Ho', 'Van', 'CS'}
 vanSet.clear();
 console.log(vanSet); // {}
 ```
+
+# Maps
+
+Objects: the keys are always strings
+Maps: the keys are any types (objects, array, maps)
+
+```js
+const vanMap = new Map();
+vanMap.set('mapKeyName', 'mapValue'); // return updated map
+vanMap.set({ name: 'Ho Ngoc van', birthYear: 1997 }, 'vanObj');
+
+console.log(vanMap); // {mapKeyName => mapValue, {name, birthYear} => vanObj}
+
+console.log(vanMap.get('mapKeyName')); // mapValue
+vanMap.set('mapKeyName', 'mapValue2');
+console.log(vanMap); // mapKeyName => mapValue2, {name, birthYear} => vanObj
+
+console.log(vanMap.has('mapKeyName')); // true
+console.log(vanMap.delete('mapKeyName')); // {name, birthYear} => vanObj
+console.log(vanMap.clear()); // {}
+
+const arrayAsMapKey = ['Math', 'Science'];
+vanMap.set(arrayAsMapKey, 'favorites');
+console.log(vanMap); // {[Math, Science] => favorites}
+console.log(vanMap.get(['Math', 'Science'])); // undefined, 2 arrays are difference
+console.log(vanMap.get(arrayAsMapKey)); // favorites
+```
