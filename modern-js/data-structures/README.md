@@ -218,6 +218,7 @@ console.log(vanSet); // {}
 # Maps
 
 Objects: the keys are always strings
+
 Maps: the keys are any types (objects, array, maps)
 
 ```js
