@@ -81,6 +81,23 @@ const sum = ([firstNumber, ...otherNumbers]) => {
 console.log(sum([1, 2, 1, -3])); // 1
 ```
 
+# And Operator (&&)
+
+```js
+const myEmail = 'hongocvan@artandscience.vn';
+const vanObj = {
+    name: 'Ho Ngoc van',
+    birthYear: 1997,
+    randNumber: 0,
+};
+
+vanObj.email &&= myEmail;
+console.log(vanObj); // {...}
+
+vanObj.email = vanObj.email && myEmail;
+console.log(vanObj); // {..., email: undefine}
+```
+
 # Nullish Operator (??)
 
 ```js
