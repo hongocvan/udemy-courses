@@ -95,7 +95,7 @@ vanObj.email &&= myEmail;
 console.log(vanObj); // {...}
 
 vanObj.email = vanObj.email && myEmail;
-console.log(vanObj); // {..., email: undefine}
+console.log(vanObj); // {..., email: undefined}
 ```
 
 # Nullish Operator (??)
@@ -106,4 +106,15 @@ console.log(null ?? 'value'); // value
 console.log(undefined ?? 'value'); // value
 console.log(0 ?? 'value'); // 0
 console.log(false ?? 'value'); // false
+```
+
+# Arrays
+
+```js
+const favorites = ['Math', 'Science', 'Reading Book', 'Running'];
+
+// Array Iterator
+for (const [idx, favorite] of favorites.entries()) {
+    console.log(idx, favorite); // 0 Math ...
+}
 ```
