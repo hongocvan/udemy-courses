@@ -195,3 +195,22 @@ for (const [
     console.log(favoriteKey, favoriteName, favoriteLevel); // math Math High
 }
 ```
+
+# Sets
+
+```js
+const vanArray = ['Ho', 'Ngoc', 'Van', 'Ho'];
+const vanSet = new Set(vanArray); // {'Ho', 'Ngoc', 'Van'}
+const newVanArray = [...vanSet];
+
+console.log(vanSet.size, vanSet[0]); // 3 undefined
+console.log(vanSet.has('Ho'), vanSet.has('1997')); // true false
+
+for (const item of vanSet) console.log(item);
+
+vanSet.add('CS');
+vanSet.delete('Ngoc');
+console.log(vanSet); // {'Ho', 'Van', 'CS'}
+vanSet.clear();
+console.log(vanSet); // {}
+```
