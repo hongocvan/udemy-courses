@@ -246,3 +246,34 @@ console.log(vanMap.get(arrayAsMapKey)); // favorites
 
 console.log(vanMap.clear()); // undefined
 ```
+
+# Strings
+
+```js
+const hnv = 'Ho Ngoc Van';
+
+console.log(hnv[0], hnv.length); // H 11
+
+console.log(hnv.indexOf('o'), hnv.lastIndexOf('o')); // 1 5
+console.log(hnv.indexOf('Ng'), hnv.indexOf('Vn')); // 3 -1
+
+console.log(hnv.slice(3)); // Ngoc Van
+console.log(hnv.slice(3, 7)); // Ngoc
+
+console.log(hnv.split(' ')); // [Ho, Ngoc, Van]
+console.log(['Computer', 'Science'].join(' ')); // Computer Science
+
+console.log(hnv.replace(' Ngoc ', ' ')); // Ho Van
+console.log(hnv.repeat(2)); // Ho Ngoc VanHo Ngoc Van
+console.log(hnv.startsWith('Ho'), hnv.endsWith('Anh')); // true false
+console.log(hnv.includes('Van'), hnv.includes('Van A')); // true false
+
+console.log(hnv.toLowerCase()); // ho ngoc van
+console.log(hnv.toUpperCase()); // HO NGOC VAN
+console.log('  string \n'.trim()); // string
+console.log('  string \n'.trimStart()); // 'string \n'
+console.log('  string \n'.trimEnd()); // '  string'
+
+console.log(hnv.padStart(15, 'H')); // HHHHHo Ngoc Van
+console.log(hnv.padEnd(15, 'n')); // Ho Ngoc Vannnnn
+```
