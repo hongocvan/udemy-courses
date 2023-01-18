@@ -119,6 +119,28 @@ Your tasks:
             }
 */
 
+console.log('--- Coding Challenge #2 ---');
+
+for (const [idx, score] of game.scored.entries()) {
+    console.log(`Goal ${idx}: ${score}`);
+}
+
+function calcAverageOdd(odds) {
+    return odds.reduce((a, b) => a + b, 0);
+}
+
+console.log(`Average odd: ${calcAverageOdd(Object.values(game.odds))}`);
+
+for (const [key, value] of Object.entries(game.odds)) {
+    console.log(`Odd of ${game[key] || 'draw'}: ${value}`);
+}
+
+const scorers = {};
+for (const player of game.scored) {
+    scorers[player] ? (scorers[player] += 1) : (scorers[player] = 1);
+}
+console.log(scorers);
+
 /* Coding Challenge #3
 Let's continue with our football betting app! This time, we have a map called
 'gameEvents' (see below) with a log of the events that happened during the
