@@ -207,13 +207,12 @@ Should produce this output (5 separate console.log outputs):
 
 console.log('--- Coding Challenge #4 ---');
 
-function upperFirstCharacter(el) {
-    str = el.toLowerCase();
+function upperFirstCharacter(str) {
     return str.replace(str[0], str[0].toUpperCase());
 }
 
 function convertUnderScoreToCamelCase(inputString) {
-    const elements = inputString.split('_');
+    const elements = inputString.toLowerCase().split('_');
     const result = [
         elements[0].toLowerCase(),
         ...elements.slice(1).map(upperFirstCharacter),
