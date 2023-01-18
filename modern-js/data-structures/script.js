@@ -204,3 +204,47 @@ Should produce this output (5 separate console.log outputs):
     calculateAge        ✅✅✅✅
     delayedDeparture    ✅✅✅✅✅
 */
+
+console.log('--- Coding Challenge #4 ---');
+
+function upperFirstCharacter(el) {
+    str = el.toLowerCase();
+    return str.replace(str[0], str[0].toUpperCase());
+}
+
+function convertUnderScoreToCamelCase(inputString) {
+    const elements = inputString.split('_');
+    const result = [
+        elements[0].toLowerCase(),
+        ...elements.slice(1).map(upperFirstCharacter),
+    ].join('');
+    return result;
+}
+
+const testDataText = `
+    underscore_case
+        first_name
+    Some_Variable
+        calculate_AGE
+    delayed_departure
+`;
+
+const data = testDataText
+    .trim()
+    .split('\n')
+    .map((str) => str.trim());
+
+for (const [idx, inputString] of data.entries()) {
+    const convertedString = convertUnderScoreToCamelCase(inputString);
+    /*
+        underscore_case      : underscoreCase        ✅
+        first_name           : firstName             ✅✅
+        Some_Variable        : someVariable          ✅✅✅
+        calculate_AGE        : calculateAge          ✅✅✅✅
+        delayed_departure    : delayedDeparture      ✅✅✅✅✅
+    */
+    console.log(
+        `${inputString.padEnd(20)} : ${convertedString}`.padEnd(45) +
+            '✅'.repeat(idx + 1)
+    );
+}
