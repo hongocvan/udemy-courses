@@ -122,7 +122,7 @@ Your tasks:
 console.log('--- Coding Challenge #2 ---');
 
 for (const [idx, score] of game.scored.entries()) {
-    console.log(`Goal ${idx}: ${score}`);
+    console.log(`Goal ${idx + 1}: ${score}`);
 }
 
 function calcAverageOdd(odds) {
@@ -157,6 +157,8 @@ Your tasks:
         whether it's in the first half or second half (after 45 min) of the game, like this:
         [FIRST HALF] 17: ⚽ GOAL
 */
+
+console.log('--- Coding Challenge #3 ---');
 
 /* Coding Challenge #4
 Write a program that receives a list of variable names written in underscore_case
