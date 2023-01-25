@@ -121,3 +121,40 @@ console.log(addVAT(100)); // 115
     console.log('This will ALSO never run again!');
 })();
 ```
+
+# Closures
+
+A function has access to the variable environment (VE) of the execution context in which it was created, even after that execution context is gone
+
+**Closure**: VE attached to the function, exactly as it was at the time and place the function was created
+
+```js
+'use strict';
+
+const secureBooking = function () {
+    let passengerCount = 0;
+
+    return function () {
+        passengerCount++;
+        console.log(`${passengerCount} passengers`);
+    };
+};
+
+const booker = secureBooking();
+
+booker(); // 1 passengers
+booker(); // 2 passengers
+booker(); // 3 passengers
+
+console.dir(booker);
+```
+
+A closure is the closed-over **variable environment** of the execution context **in which a function was created**, even **after** that execution context is gone
+
+A closure gives a function access to all the variables **of its parent function**, even **after** that parent function has returned. The function keeps a **reference** to its outer scope, which **preserves** the scope chain throughout time
+
+A closure makes sure that a function doesn't loose connection to **variables that existed at the function's birth place**
+
+A closure is like a **backpack** that a function carries around wherever it goes. This backpack has all the **variables that were present in the environment where the function was created**
+
+=>>> We do **NOT** have to manually create closures, this is a JavaScript feature that happens automatically. We can't even access closed-over variables explicitly. A closure is **NOT** a tangible JavaScript object
