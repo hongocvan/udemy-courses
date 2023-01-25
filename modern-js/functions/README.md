@@ -107,3 +107,17 @@ console.log(addTax(0.1, 200)); // 220
 const addVAT = addTax.bind(null, 0.15);
 console.log(addVAT(100)); // 115
 ```
+
+# Immediately Invoked Function Expression (IIFE)
+
+```js
+'use strict';
+
+(function () {
+    console.log('This will never run again!');
+})();
+
+(() => {
+    console.log('This will ALSO never run again!');
+})();
+```
