@@ -29,7 +29,14 @@ const account4 = {
     pin: 4444,
 };
 
-const accounts = [account1, account2, account3, account4];
+const account5 = {
+    owner: 'Ho Ngoc Van',
+    movements: [250, 90, -12, 300, -57, 24, 97, -700, 345, 100, -420, 197],
+    interestRate: 0.1,
+    pin: 1807,
+};
+
+const accounts = [account1, account2, account3, account4, account5];
 ```
 
 # Some simple methods
@@ -88,4 +95,37 @@ currenciesUnique.forEach(function (value, key, set) {
     // key as value
     console.log(key, value, set); // VND VND {...}
 });
+```
+
+# Data Transformations: map, filter, reduce
+
+**map** returns a **new array** containing the results of applying an operation on all original array elements
+
+```js
+const newAccountsMap = accounts.map(function (account, idx) {
+    console.log(idx, account);
+    return `${account.owner} - ${account.pin}`;
+});
+
+console.log(newAccountsMap); // [Jonas Schmedtmann - 1111, ...]
+```
+
+**filter** returns a **new array** containing the array elements that passed a specified **test condition**
+
+```js
+const newAccountsFilter = accounts.filter(function (account) {
+    return account.interestRate < 1;
+});
+
+console.log(newAccountsFilter); // [{Ho Ngoc Van}, {Steven Thomas Williams}]
+```
+
+**reduce** boils ("reduces") all array elements down to one single value
+
+```js
+const totalMovements = accounts.map(function (account) {
+    return account.movements.reduce((a, b) => a + b);
+});
+
+console.log(totalMovements); // [3840, 11720, 10, 2270, 214]
 ```
