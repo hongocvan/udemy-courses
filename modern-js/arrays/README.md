@@ -124,7 +124,11 @@ console.log(newAccountsFilter); // [{Ho Ngoc Van}, {Steven Thomas Williams}]
 
 ```js
 const totalMovements = accounts.map(function (account) {
-    return account.movements.reduce((a, b) => a + b);
+    // acc = accumulator, cur = current
+    return account.movements.reduce(
+        (acc, cur, i, arr) => acc + cur,
+        0 // initial value for accumulator
+    );
 });
 
 console.log(totalMovements); // [3840, 11720, 10, 2270, 214]
