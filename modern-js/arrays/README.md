@@ -57,3 +57,35 @@ console.log(['v', 'a'].concat(['v'])); // [v, a, v]
 // JOIN method
 console.log(['v', 'a'].join('')); // va
 ```
+
+# Looping Arrays
+
+FOREACH method: NOT work for continue and break statements
+
+```js
+accounts.forEach(function (account, idx, array) {
+    console.log(idx, account, array); // 0 {} [{}, {}]
+});
+```
+
+FOREACH with maps and sets
+
+```js
+const currencies = new Map([
+    ['USD', 'United States dollar'],
+    ['EUR', 'Euro'],
+    ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+    // key as index
+    console.log(key, value, map); // USD 'United States dollar' {...}
+});
+
+const currenciesUnique = new Set(['USD', 'GBP', 'VND', 'USD', 'VND']);
+
+currenciesUnique.forEach(function (value, key, set) {
+    // key as value
+    console.log(key, value, set); // VND VND {...}
+});
+```
