@@ -133,3 +133,15 @@ const totalMovements = accounts.map(function (account) {
 
 console.log(totalMovements); // [3840, 11720, 10, 2270, 214]
 ```
+
+**find** returns an element of the array, **findIndex** returns index of the element
+
+```js
+console.log(
+    accounts.find((account) => {
+        return account.interestRate < 0.5; // {Ho Ngoc Van}
+    })
+);
+
+console.log(accounts.findIndex((account) => account.interestRate < 0.5)); // 4
+```
