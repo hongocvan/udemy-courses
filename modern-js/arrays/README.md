@@ -182,3 +182,18 @@ console.log(accounts.sort((a, b) => a.interestRate - b.interestRate));
 // [{Jessica Davis}, ..., {Steven Thomas Williams}, {Ho Ngoc Van}] =>>> Descending
 console.log(accounts.sort((a, b) => -(a.interestRate - b.interestRate)));
 ```
+
+# Creating and Filling Arrays
+
+```js
+const arr = new Array(10); // [empty x 10]
+
+arr.map(() => 25); // [empty x 10]
+arr.fill(25, 7, 8); // [empty x 7, 25, empty x 2]
+arr.fill(25); // [25, 25, ..., 25]
+
+console.log(Array.from({ length: 10 })); // [undefined x 10]
+console.log(Array.from({ length: 10 }, (_, i) => 25 + i)); // [25, 26, ..., 34]
+
+const movementsUI = Array.from(document.querySelectorAll('.movements__value'));
+```
