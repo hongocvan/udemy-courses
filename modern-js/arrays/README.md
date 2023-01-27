@@ -154,3 +154,17 @@ console.log(accounts.some((acc) => acc.interestRate < 0.5)); // true
 console.log(accounts.every((acc) => acc.interestRate < 0.5)); // false
 console.log(accounts.every((acc) => acc.interestRate < 2)); // true
 ```
+
+```js
+// [['owner', 'Jonas Schmedtmann'],
+// ['movements', Array(8)],
+// ...
+// ['owner', 'Ho Ngoc Van'],
+// ['movements', Array(12)],
+// ['interestRate', 0.1],...]
+console.log(accounts.map((acc) => Object.entries(acc)).flat());
+console.log(accounts.flatMap((acc) => Object.entries(acc))); // same result
+
+// ['owner', 'Jonas Schmedtmann', 'movements', Array(8), ...,'username', 'hnv']
+console.log(accounts.map((acc) => Object.entries(acc)).flat(2));
+```
