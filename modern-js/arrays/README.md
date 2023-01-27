@@ -168,3 +168,17 @@ console.log(accounts.flatMap((acc) => Object.entries(acc))); // same result
 // ['owner', 'Jonas Schmedtmann', 'movements', Array(8), ...,'username', 'hnv']
 console.log(accounts.map((acc) => Object.entries(acc)).flat(2));
 ```
+
+# Sorting
+
+**sort** method changes original array (sorting based on string by converting everything to string)
+
+```js
+// [{Ho Ngoc Van}, {Steven Thomas Williams}, ...{Jessica Davis}] =>>> Ascending
+// return < 0 =>>> a, b (keep order)
+// return > 0 =>>> b, a (switch order)
+console.log(accounts.sort((a, b) => a.interestRate - b.interestRate));
+
+// [{Jessica Davis}, ..., {Steven Thomas Williams}, {Ho Ngoc Van}] =>>> Descending
+console.log(accounts.sort((a, b) => -(a.interestRate - b.interestRate)));
+```
