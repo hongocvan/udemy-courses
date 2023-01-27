@@ -145,3 +145,12 @@ console.log(
 
 console.log(accounts.findIndex((account) => account.interestRate < 0.5)); // 4
 ```
+
+**includes**: equality, **some**: condition, **every**: all + condition
+
+```js
+console.log(accounts.some((acc) => acc.interestRate < 0.5)); // true
+
+console.log(accounts.every((acc) => acc.interestRate < 0.5)); // false
+console.log(accounts.every((acc) => acc.interestRate < 2)); // true
+```
