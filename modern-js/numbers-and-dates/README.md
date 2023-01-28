@@ -21,3 +21,25 @@ console.log(x, y); // 13289127381230146102371790123n 127312831291823128370127123
 console.log(x * y); // 169187643230210088853626463388176103456571431945952032617n
 console.log(x ** 4); // TypeError: Cannot mix BigInt and other types...
 ```
+
+# Dates
+
+```js
+// Tue Nov 19 2019 04:31:17 GMT+0700 (Indochina Time)
+console.log(new Date('2019-11-18T21:31:17.178Z'));
+
+// Thu Jan 01 1970 08:00:00 GMT+0800 (Indochina Time)
+console.log(new Date(0));
+
+// Mon Jan 26 1970 08:00:00 GMT+0800 (Indochina Time)
+console.log(new Date(25 * 24 * 60 * 60 * 1000));
+
+const birth = new Date(1997, 11, 25, 18, 7, 0);
+
+// Thu Dec 25 1997 00:00:00 GMT+0700 (Indochina Time)
+console.log(birth);
+console.log(birth.getFullYear()); // 1997
+console.log(birth.getMonth()); // 11
+console.log(birth.getDate()); // 25
+console.log(birth.toISOString()); // 1997-12-25T11:07:00.000Z
+```
