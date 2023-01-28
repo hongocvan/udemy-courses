@@ -43,3 +43,43 @@ console.log(birth.getMonth()); // 11
 console.log(birth.getDate()); // 25
 console.log(birth.toISOString()); // 1997-12-25T11:07:00.000Z
 ```
+
+# Internationalizing Dates and Numbers
+
+```js
+const now = new Date();
+const options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    weekday: 'long',
+    hour: 'numeric',
+    minute: 'numeric',
+};
+
+new Intl.DateTimeFormat(
+    currentAccount.locale,
+    options
+).format(now);
+```
+
+```js
+const num = 251218.97;
+
+const options = {
+    style: 'unit',
+    unit: 'mile-per-hour',
+};
+
+// US: 251,218.97 mph
+console.log('US:', new Intl.NumberFormat('en-US', options).format(num));
+
+// VN: 251.218,97 mi/h
+console.log('VN:', new Intl.NumberFormat('vi-VN', options).format(num));
+
+// const curr = 25.12;
+// const options = {
+//     style: 'currency',
+//     currency: 'VND',
+// };
+```
