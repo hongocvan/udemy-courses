@@ -110,3 +110,28 @@ document.querySelector('.nav').addEventListener(
     true
 );
 ```
+
+# DOM traversing
+
+```js
+const h1 = document.querySelector('h1');
+
+// Going downwards: child
+h1.querySelectorAll('.highlight');
+h1.childNodes;
+h1.children; // NOT text, comment,...
+h1.firstElementChild.style.color = 'white';
+h1.lastElementChild.style.color = 'orangered';
+
+// Going upwards: parents
+h1.parentNode;
+h1.parentElement;
+
+h1.closest('.header').style.background = 'var(--gradient-secondary)';
+
+// Going sideways: siblings
+h1.previousElementSibling;
+h1.nextElementSibling;
+h1.previousSibling;
+h1.nextSibling;
+```
