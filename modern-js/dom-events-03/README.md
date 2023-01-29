@@ -75,3 +75,38 @@ logo.classList.contains('test-class');
 // Don't use
 logo.className = 'test-class';
 ```
+
+# Event Propagation
+
+```js
+const randomInt = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1)) + min;
+
+const randomColorInt = randomInt.bind(null, 0, 255);
+
+const randomColor = () =>
+    `rgb(${randomColorInt()}, ${randomColorInt()}, ${randomColorInt()})`;
+
+document.querySelector('.nav__link').addEventListener('click', function (e) {
+    e.preventDefault();
+    this.style.backgroundColor = randomColor();
+    console.log('LINK', e.target, e.currentTarget);
+});
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+    this.style.backgroundColor = randomColor();
+    console.log('CONTAINER', e.target, e.currentTarget);
+
+    // Stop propagation
+    e.stopPropagation();
+});
+
+document.querySelector('.nav').addEventListener(
+    'click',
+    function (e) {
+        this.style.backgroundColor = randomColor();
+        console.log('NAV', e.target, e.currentTarget);
+    },
+    true
+);
+```
