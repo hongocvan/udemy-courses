@@ -116,3 +116,15 @@ hnv.init('Van', 1997);
 console.log(hnv); // {firstName, birthYear} [[Prototype]]: {calcAge, name}
 hnv.calcAge();
 ```
+
+# Inheritance Between "Classes": ES6 Classses
+
+```js
+class Student extends PersonCl {
+    constructor(firstName, birthYear, course) {
+        super(firstName, birthYear);
+        this.course = course;
+    }
+}
+```
+
