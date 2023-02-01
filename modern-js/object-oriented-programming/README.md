@@ -128,3 +128,58 @@ class Student extends PersonCl {
 }
 ```
 
+# Encapsulation
+
+```js
+class Account {
+    // Public fields (instances)
+    locale = navigator.language;
+
+    // Private fields
+    #movements = [];
+    #pin;
+
+    constructor(owner, currency, pin) {
+        this.owner = owner;
+        this.currency = currency;
+        // Protected property
+        this.#pin = pin;
+    }
+
+    // Public interface
+    getMovements() {
+        return this.#movements;
+    }
+
+    // Public methods
+    deposit(val) {
+        this.#movements.push(val);
+        return this;
+    }
+
+    withdraw(val) {
+        this.deposit(-val);
+        return this;
+    }
+
+    requestLoan(val) {
+        if (this._approveLoan(val)) {
+            this.deposit(val);
+            return this;
+        }
+    }
+
+    // Private methods
+    _approveLoan(val) {
+        return true;
+    }
+}
+
+const acc = new Account('Ho Ngoc Van', 'VND', 1807);
+console.log(acc);
+
+// Chaining
+acc.deposit(5000).withdraw(300).withdraw(125).deposit(710).requestLoan(800);
+console.log(acc.getMovements());
+```
+
