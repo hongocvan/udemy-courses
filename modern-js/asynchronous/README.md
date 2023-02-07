@@ -36,3 +36,40 @@ Promise.resolve('Resolved promise 2').then((res) => {
 });
 console.log('Test end');
 ```
+
+```js
+(async function (country) {
+    console.log('1: ');
+    {
+        const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+        console.log('2: data', res);
+    }
+    // try {
+    //     const res = await fetch(`https://restcountries.com/v2/name/${country}`);
+    //     console.log('2: data', res);
+    // } catch (err) {
+    //     console.log('2: error', err);
+    // }
+    console.log('3:');
+})('vn');
+```
+
+# Running Promises in Parallel
+
+```js
+const get3Countries = async function (c1, c2, c3) {
+    try {
+        const data = Promise.all([
+            getJSON(`https://restcountries.com/v2/name/${c1}`),
+            getJSON(`https://restcountries.com/v2/name/${c2}`),
+            getJSON(`https://restcountries.com/v2/name/${c3}`),
+        ]);
+
+        console.log('data', data); // Array
+    } catch (err) {
+        console.error('err', err);
+    }
+};
+
+get3Countries('vn', 'usa', 'portugal');
+```
