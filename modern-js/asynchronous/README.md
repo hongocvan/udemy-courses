@@ -73,3 +73,54 @@ const get3Countries = async function (c1, c2, c3) {
 
 get3Countries('vn', 'usa', 'portugal');
 ```
+
+# Other Promises Combinators
+
+```js
+// Promise.race
+const timeout = function (seconds) {
+    return new Promise(function (_, reject) {
+        setTimeout(function () {
+            reject(new Error('Request took too long!'));
+        }, seconds * 1000);
+    });
+};
+
+(async function () {
+    const data = await Promise.race([
+        getJSON(`https://restcountries.com/v2/name/vn`),
+        timeout(1),
+    ]);
+
+    console.log(data);
+})();
+
+// Primise.allSettled
+(async function () {
+    const res = await Promise.allSettled([
+        Promise.resolve('Success'),
+        Promise.reject('Error'),
+        Promise.resolve('Another Success'),
+        Promise.reject('Another Error'),
+    ]);
+
+    //[{status: 'fulfilled', value: 'Success'},
+    // {status: 'rejected', reason: 'Error'},
+    // {status: 'fulfilled', value: 'Another Success'}
+    // {status: 'rejected', reason: 'Another Error'}]
+
+    console.log(res);
+})();
+
+// Primise.any: return the first fulfilled promise
+(async function () {
+    const res = await Promise.any([
+        Promise.resolve('Success'),
+        Promise.reject('Error'),
+        Promise.resolve('Another Success'),
+        Promise.reject('Another Error'),
+    ]);
+
+    console.log(res); // Success
+})();
+```
