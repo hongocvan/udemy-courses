@@ -59,7 +59,7 @@ console.log('Test end');
 ```js
 const get3Countries = async function (c1, c2, c3) {
     try {
-        const data = Promise.all([
+        const data = await Promise.all([
             getJSON(`https://restcountries.com/v2/name/${c1}`),
             getJSON(`https://restcountries.com/v2/name/${c2}`),
             getJSON(`https://restcountries.com/v2/name/${c3}`),
