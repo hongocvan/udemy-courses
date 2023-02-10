@@ -1,0 +1,19 @@
+{
+    "name": "modules-and-tooling",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "start": "parcel index.html",
+        "build": "parcel build index.html"
+    },
+    "author": "hongocvan",
+    "license": "ISC",
+    "dependencies": {
+        "leaflet": "^1.9.3",
+        "lodash": "^4.17.21"
+    },
+    "devDependencies": {
+        "parcel": "^2.8.3"
+    }
+}
